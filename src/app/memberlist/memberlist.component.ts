@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { MemberlistService } from './memberlist.service';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormdialogComponent } from '../formdialog/formdialog.component';
 
 @Component({
   selector: 'app-memberlist',
@@ -13,7 +14,10 @@ export class MemberlistComponent implements OnInit {
 
   @ViewChild('memlist') memlist: MatTable<any>;
 
-  constructor(private memberService: MemberlistService) { }
+  constructor(
+    private memberService: MemberlistService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
   }
@@ -28,4 +32,15 @@ export class MemberlistComponent implements OnInit {
     // console.log(id, this.dataSource);
   }
 
+  openDialog(id): void {
+    const dialogRef = this.dialog.open(FormdialogComponent, {
+      width: '400px',
+      data: this.memberService.getSingleMember(id)
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.memlist.renderRows();
+    });
+  }
 }

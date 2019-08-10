@@ -15,4 +15,10 @@ export class MemberlistService {
   deleteMember(ind) {
     this.member.splice(ind, 1);
   }
+  getSingleMember(ind) {
+    return this.member[ind];
+  }
+  setSingleMember(ind, val) {
+    this.member[ind] = val;
+  }
 }
