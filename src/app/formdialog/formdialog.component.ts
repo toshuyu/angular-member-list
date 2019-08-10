@@ -25,8 +25,12 @@ export class FormdialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSave(value, id) {
-    this.memberService.setSingleMember(id, value);
+  onSave(value, id?) {
+    if (id === undefined) {
+      this.memberService.addMember(value);
+    } else {
+      this.memberService.setSingleMember(id, value);
+    }
     this.dialogRef.close();
   }
 

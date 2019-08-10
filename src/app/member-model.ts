@@ -1,7 +1,8 @@
-export interface Member {
-    id: number;
-    firstName: string;
-    lastName: string;
-    age: number;
-    contact: string;
+export class Member {
+    firstName = '';
+    lastName = '';
+    age = '';
+    line = '';
+    email = '';
+    facebook = '';
 }
