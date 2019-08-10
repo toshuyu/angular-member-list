@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import mockLib from '../../mock';
+import { MemberlistService } from './memberlist.service';
+
 
 @Component({
   selector: 'app-memberlist',
@@ -9,16 +10,20 @@ import mockLib from '../../mock';
 })
 export class MemberlistComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'age', 'contact', 'edit', 'delete'];
-  dataSource = mockLib.flattenMock(mockLib.mock);
+
   @ViewChild('memlist') memlist: MatTable<any>;
 
-  constructor() { }
+  constructor(private memberService: MemberlistService) { }
 
   ngOnInit() {
   }
 
+  getMember() {
+    return this.memberService.getMember();
+  }
+
   onDelete(id) {
-    this.dataSource.splice(id, 1);
+    this.memberService.deleteMember(id);
     this.memlist.renderRows();
     // console.log(id, this.dataSource);
   }
