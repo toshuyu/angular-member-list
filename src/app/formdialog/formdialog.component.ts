@@ -29,7 +29,7 @@ export class FormdialogComponent implements OnInit {
     if (id === undefined) {
       this.memberService.addMember(value);
     } else {
-      this.memberService.setSingleMember(id, value);
+      this.memberService.editMember(id, value);
     }
     this.dialogRef.close();
   }

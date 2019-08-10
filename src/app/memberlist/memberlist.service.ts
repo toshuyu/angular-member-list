@@ -6,13 +6,13 @@ import { Member } from '../member-model';
   providedIn: 'root'
 })
 export class MemberlistService {
-  member;
+  member: Member[];
   maxIndex: number;
   constructor() {
     this.member = mockLib.flattenMock(mockLib.mock);
     this.maxIndex = this.member.length;
   }
-  getMember() {
+  getMembers() {
     return this.member;
   }
   deleteMember(id) {
@@ -24,7 +24,7 @@ export class MemberlistService {
     }
     return this.member.filter((member) => member.id === id)[0];
   }
-  setSingleMember(id, val) {
+  editMember(id, val) {
     this.member = this.member.map(member => {
       if (id === member.id) {
         return val;
@@ -33,7 +33,7 @@ export class MemberlistService {
       }
     });
   }
-  addMember(val) {
+  addMember(val: Member) {
     this.member.push(val);
     this.member[this.member.length - 1]['id'] = this.maxIndex;
     this.maxIndex++;

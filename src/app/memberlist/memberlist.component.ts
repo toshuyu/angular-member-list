@@ -23,8 +23,8 @@ export class MemberlistComponent implements OnInit {
   ngOnInit() {
   }
 
-  getMember() {
-    return this.memberService.getMember();
+  getMembers() {
+    return this.memberService.getMembers();
   }
 
   onDelete(id) {
