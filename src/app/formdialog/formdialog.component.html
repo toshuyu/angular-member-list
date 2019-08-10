@@ -9,7 +9,25 @@
   </mat-form-field>
   <mat-form-field>
       <input matInput [value]="data.age" placeholder="age" formControlName="age">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Contact" formControlName="contact">
+      <mat-option value="line">Line</mat-option>
+      <mat-option value="email">Email</mat-option>
+      <mat-option value="facebook">Facebook</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field *ngIf="checkoutForm.value.contact === 'line'">
+    <input matInput [value]="data.line" placeholder="line" formControlName="line">
+  </mat-form-field>
+  <mat-form-field *ngIf="checkoutForm.value.contact === 'email'">
+    <input matInput [value]="data.email" placeholder="email" formControlName="email">
+  </mat-form-field>
+  <mat-form-field *ngIf="checkoutForm.value.contact === 'facebook'">
+      <input matInput [value]="data.facebook" placeholder="facebook" formControlName="facebook">
     </mat-form-field>
+  
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">cancel</button>

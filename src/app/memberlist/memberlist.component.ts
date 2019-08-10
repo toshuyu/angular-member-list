@@ -35,11 +35,11 @@ export class MemberlistComponent implements OnInit {
   openDialog(id): void {
     const dialogRef = this.dialog.open(FormdialogComponent, {
       width: '400px',
-      data: this.memberService.getSingleMember(id)
+      data: {...this.memberService.getSingleMember(id),
+        contact: ''}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.memlist.renderRows();
     });
   }

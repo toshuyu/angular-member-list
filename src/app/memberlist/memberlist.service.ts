@@ -12,13 +12,19 @@ export class MemberlistService {
   getMember() {
     return this.member;
   }
-  deleteMember(ind) {
-    this.member.splice(ind, 1);
+  deleteMember(id) {
+    this.member = this.member.filter((member) => member.id !== id);
   }
-  getSingleMember(ind) {
-    return this.member[ind];
+  getSingleMember(id) {
+    return this.member.filter((member) => member.id === id)[0];
   }
-  setSingleMember(ind, val) {
-    this.member[ind] = val;
+  setSingleMember(id, val) {
+    this.member = this.member.map(member => {
+      if (id === member.id) {
+        return val;
+      } else {
+        return member;
+      }
+    });
   }
 }
