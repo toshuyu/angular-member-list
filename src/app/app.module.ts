@@ -2,13 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { MemberlistComponent } from './memberlist/memberlist.component';
+import { DemoMaterialModule } from './../material-module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MemberlistComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    DemoMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
