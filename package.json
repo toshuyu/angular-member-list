@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:prod": "ng build --base-href https://toshuyu.github.io/angular-member-list/angular-member-list/",
+    "deploy": "gh-pages -d dist"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +26,7 @@
     "@angular/router": "^6.0.3",
     "ajv": "^6.10.2",
     "core-js": "^2.5.4",
+    "gh-pages": "^2.1.1",
     "rxjs": "^6.2.1",
     "zone.js": "^0.8.26"
   },
