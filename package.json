@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:prod": "ng build --base-href https://toshuyu.github.io/angular-member-list/angular-member-list/",
